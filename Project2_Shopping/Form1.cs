@@ -12,6 +12,7 @@ using System.Windows.Forms;
 /// Project 2
 /// 10/06/16
 /// Project stuff
+/// Boom!
 /// </summary>
 namespace Project2_Shopping
 {
