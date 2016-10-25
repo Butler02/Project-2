@@ -32,6 +32,7 @@ namespace Project2_Shopping
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lstDeals.Items.Add("No Deals at this Time");
             //dtpExpireDate.Format = DateTimePickerFormat.Custom;
             //dtpExpireDate.CustomFormat = "MM/dd/yyyy";
         }
