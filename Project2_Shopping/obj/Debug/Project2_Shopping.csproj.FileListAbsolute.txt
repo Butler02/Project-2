@@ -7,3 +7,4 @@ C:\Users\Eric\Desktop\school\fall 2016\C#\Project2_Shopping\Project2_Shopping\ob
 C:\Users\Eric\Desktop\school\fall 2016\C#\Project2_Shopping\Project2_Shopping\obj\Debug\Project2_Shopping.csproj.GenerateResource.Cache
 C:\Users\Eric\Desktop\school\fall 2016\C#\Project2_Shopping\Project2_Shopping\obj\Debug\Project2_Shopping.exe
 C:\Users\Eric\Desktop\school\fall 2016\C#\Project2_Shopping\Project2_Shopping\obj\Debug\Project2_Shopping.pdb
+C:\Users\Jimmy\Documents\C#\Project2\Project2_Shopping\bin\Debug\Project2_Shopping.exe.config
