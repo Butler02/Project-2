@@ -25,8 +25,9 @@ namespace Project2_Shopping
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
             //I think you should do Close();
+            //yes Sr. -Eric
         }
 
         private void Form1_Load(object sender, EventArgs e)

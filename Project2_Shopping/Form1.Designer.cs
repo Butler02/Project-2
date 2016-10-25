@@ -36,10 +36,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.tbLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbRegister = new System.Windows.Forms.GroupBox();
             this.btnAddUser = new System.Windows.Forms.Button();
@@ -49,14 +49,14 @@
             this.btnSearchDeal = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.gbLikeDislike = new System.Windows.Forms.GroupBox();
+            this.rbDislikeDeal = new System.Windows.Forms.RadioButton();
+            this.rbLikeDeal = new System.Windows.Forms.RadioButton();
             this.btnChoose = new System.Windows.Forms.Button();
             this.lstDeals = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.rbLikeDeal = new System.Windows.Forms.RadioButton();
-            this.rbDislikeDeal = new System.Windows.Forms.RadioButton();
             this.gbDeals.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbLogin.SuspendLayout();
             this.gbRegister.SuspendLayout();
             this.gbSearch.SuspendLayout();
             this.gbLikeDislike.SuspendLayout();
@@ -137,52 +137,52 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Product to Add:";
             // 
-            // groupBox2
+            // gbLogin
             // 
-            this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 138);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(210, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.gbLogin.Controls.Add(this.btnLogout);
+            this.gbLogin.Controls.Add(this.btnLogin);
+            this.gbLogin.Controls.Add(this.tbLogin);
+            this.gbLogin.Controls.Add(this.label3);
+            this.gbLogin.Location = new System.Drawing.Point(12, 138);
+            this.gbLogin.Name = "gbLogin";
+            this.gbLogin.Size = new System.Drawing.Size(210, 100);
+            this.gbLogin.TabIndex = 1;
+            this.gbLogin.TabStop = false;
+            this.gbLogin.Text = "Login";
             // 
-            // button6
+            // btnLogout
             // 
-            this.button6.Location = new System.Drawing.Point(127, 58);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnLogout.Location = new System.Drawing.Point(127, 58);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 23);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnLogin
             // 
-            this.button5.Location = new System.Drawing.Point(125, 22);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnLogin.Location = new System.Drawing.Point(125, 22);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 3;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // tbLogin
             // 
-            this.textBox2.Location = new System.Drawing.Point(21, 58);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 2;
+            this.tbLogin.Location = new System.Drawing.Point(21, 58);
+            this.tbLogin.Name = "tbLogin";
+            this.tbLogin.Size = new System.Drawing.Size(100, 22);
+            this.tbLogin.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(7, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 17);
+            this.label3.Size = new System.Drawing.Size(115, 17);
             this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label3.Text = "Enter Username:";
             // 
             // gbRegister
             // 
@@ -259,6 +259,28 @@
             this.gbLikeDislike.TabIndex = 1;
             this.gbLikeDislike.TabStop = false;
             // 
+            // rbDislikeDeal
+            // 
+            this.rbDislikeDeal.AutoSize = true;
+            this.rbDislikeDeal.Location = new System.Drawing.Point(115, 21);
+            this.rbDislikeDeal.Name = "rbDislikeDeal";
+            this.rbDislikeDeal.Size = new System.Drawing.Size(103, 21);
+            this.rbDislikeDeal.TabIndex = 10;
+            this.rbDislikeDeal.TabStop = true;
+            this.rbDislikeDeal.Text = "Dislike Deal";
+            this.rbDislikeDeal.UseVisualStyleBackColor = true;
+            // 
+            // rbLikeDeal
+            // 
+            this.rbLikeDeal.AutoSize = true;
+            this.rbLikeDeal.Location = new System.Drawing.Point(21, 21);
+            this.rbLikeDeal.Name = "rbLikeDeal";
+            this.rbLikeDeal.Size = new System.Drawing.Size(88, 21);
+            this.rbLikeDeal.TabIndex = 9;
+            this.rbLikeDeal.TabStop = true;
+            this.rbLikeDeal.Text = "Like Deal";
+            this.rbLikeDeal.UseVisualStyleBackColor = true;
+            // 
             // btnChoose
             // 
             this.btnChoose.Location = new System.Drawing.Point(77, 61);
@@ -295,28 +317,6 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // rbLikeDeal
-            // 
-            this.rbLikeDeal.AutoSize = true;
-            this.rbLikeDeal.Location = new System.Drawing.Point(21, 21);
-            this.rbLikeDeal.Name = "rbLikeDeal";
-            this.rbLikeDeal.Size = new System.Drawing.Size(88, 21);
-            this.rbLikeDeal.TabIndex = 9;
-            this.rbLikeDeal.TabStop = true;
-            this.rbLikeDeal.Text = "Like Deal";
-            this.rbLikeDeal.UseVisualStyleBackColor = true;
-            // 
-            // rbDislikeDeal
-            // 
-            this.rbDislikeDeal.AutoSize = true;
-            this.rbDislikeDeal.Location = new System.Drawing.Point(115, 21);
-            this.rbDislikeDeal.Name = "rbDislikeDeal";
-            this.rbDislikeDeal.Size = new System.Drawing.Size(103, 21);
-            this.rbDislikeDeal.TabIndex = 10;
-            this.rbDislikeDeal.TabStop = true;
-            this.rbDislikeDeal.Text = "Dislike Deal";
-            this.rbDislikeDeal.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,7 +325,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstDeals);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbLogin);
             this.Controls.Add(this.gbRegister);
             this.Controls.Add(this.gbSearch);
             this.Controls.Add(this.gbLikeDislike);
@@ -335,8 +335,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbDeals.ResumeLayout(false);
             this.gbDeals.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbLogin.ResumeLayout(false);
+            this.gbLogin.PerformLayout();
             this.gbRegister.ResumeLayout(false);
             this.gbRegister.PerformLayout();
             this.gbSearch.ResumeLayout(false);
@@ -358,10 +358,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.GroupBox gbLogin;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox tbLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbRegister;
         private System.Windows.Forms.Button btnAddUser;
