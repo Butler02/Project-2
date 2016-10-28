@@ -84,9 +84,10 @@
             // dtpExpireDate
             // 
             this.dtpExpireDate.CustomFormat = "MM/dd/yyyy";
+            this.dtpExpireDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpExpireDate.Location = new System.Drawing.Point(9, 182);
             this.dtpExpireDate.Name = "dtpExpireDate";
-            this.dtpExpireDate.Size = new System.Drawing.Size(144, 22);
+            this.dtpExpireDate.Size = new System.Drawing.Size(110, 22);
             this.dtpExpireDate.TabIndex = 8;
             this.dtpExpireDate.Value = new System.DateTime(2016, 10, 13, 0, 0, 0, 0);
             // 
