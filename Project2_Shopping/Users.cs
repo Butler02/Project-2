@@ -10,5 +10,7 @@ namespace Project2_Shopping
     {
         private String mName;
         private String mLike;
+
+
     }
 }

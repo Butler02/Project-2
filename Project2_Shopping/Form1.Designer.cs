@@ -31,24 +31,24 @@
             this.gbDeals = new System.Windows.Forms.GroupBox();
             this.dtpExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddDeal = new System.Windows.Forms.Button();
-            this.tbPrice = new System.Windows.Forms.TextBox();
-            this.tbProductToAdd = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtProductToAdd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.tbLogin = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gbRegister = new System.Windows.Forms.GroupBox();
             this.btnAddUser = new System.Windows.Forms.Button();
-            this.tbAddUsername = new System.Windows.Forms.TextBox();
+            this.txtAddUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.btnSearchDeal = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.gbLikeDislike = new System.Windows.Forms.GroupBox();
+            this.grpLikeDislike = new System.Windows.Forms.GroupBox();
             this.rbDislikeDeal = new System.Windows.Forms.RadioButton();
             this.rbLikeDeal = new System.Windows.Forms.RadioButton();
             this.btnChoose = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@
             this.gbLogin.SuspendLayout();
             this.gbRegister.SuspendLayout();
             this.gbSearch.SuspendLayout();
-            this.gbLikeDislike.SuspendLayout();
+            this.grpLikeDislike.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,15 +69,15 @@
             // 
             this.gbDeals.Controls.Add(this.dtpExpireDate);
             this.gbDeals.Controls.Add(this.btnAddDeal);
-            this.gbDeals.Controls.Add(this.tbPrice);
-            this.gbDeals.Controls.Add(this.tbProductToAdd);
+            this.gbDeals.Controls.Add(this.txtPrice);
+            this.gbDeals.Controls.Add(this.txtProductToAdd);
             this.gbDeals.Controls.Add(this.label4);
             this.gbDeals.Controls.Add(this.label5);
             this.gbDeals.Controls.Add(this.label6);
             this.gbDeals.Location = new System.Drawing.Point(228, 12);
             this.gbDeals.Name = "gbDeals";
             this.gbDeals.Size = new System.Drawing.Size(230, 226);
-            this.gbDeals.TabIndex = 0;
+            this.gbDeals.TabIndex = 2;
             this.gbDeals.TabStop = false;
             this.gbDeals.Text = "Deals";
             // 
@@ -101,19 +101,19 @@
             this.btnAddDeal.UseVisualStyleBackColor = true;
             this.btnAddDeal.Click += new System.EventHandler(this.btnAddDeal_Click);
             // 
-            // tbPrice
+            // txtPrice
             // 
-            this.tbPrice.Location = new System.Drawing.Point(21, 114);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(100, 22);
-            this.tbPrice.TabIndex = 3;
+            this.txtPrice.Location = new System.Drawing.Point(1521, 504);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 22);
+            this.txtPrice.TabIndex = 3;
             // 
-            // tbProductToAdd
+            // txtProductToAdd
             // 
-            this.tbProductToAdd.Location = new System.Drawing.Point(21, 43);
-            this.tbProductToAdd.Name = "tbProductToAdd";
-            this.tbProductToAdd.Size = new System.Drawing.Size(100, 22);
-            this.tbProductToAdd.TabIndex = 4;
+            this.txtProductToAdd.Location = new System.Drawing.Point(21, 43);
+            this.txtProductToAdd.Name = "txtProductToAdd";
+            this.txtProductToAdd.Size = new System.Drawing.Size(100, 22);
+            this.txtProductToAdd.TabIndex = 4;
             // 
             // label4
             // 
@@ -146,7 +146,7 @@
             // 
             this.gbLogin.Controls.Add(this.btnLogout);
             this.gbLogin.Controls.Add(this.btnLogin);
-            this.gbLogin.Controls.Add(this.tbLogin);
+            this.gbLogin.Controls.Add(this.txtLogin);
             this.gbLogin.Controls.Add(this.label3);
             this.gbLogin.Location = new System.Drawing.Point(12, 138);
             this.gbLogin.Name = "gbLogin";
@@ -164,6 +164,7 @@
             this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnLogin
             // 
@@ -175,12 +176,12 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // tbLogin
+            // txtLogin
             // 
-            this.tbLogin.Location = new System.Drawing.Point(21, 58);
-            this.tbLogin.Name = "tbLogin";
-            this.tbLogin.Size = new System.Drawing.Size(100, 22);
-            this.tbLogin.TabIndex = 2;
+            this.txtLogin.Location = new System.Drawing.Point(21, 58);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(100, 22);
+            this.txtLogin.TabIndex = 2;
             // 
             // label3
             // 
@@ -194,12 +195,12 @@
             // gbRegister
             // 
             this.gbRegister.Controls.Add(this.btnAddUser);
-            this.gbRegister.Controls.Add(this.tbAddUsername);
+            this.gbRegister.Controls.Add(this.txtAddUsername);
             this.gbRegister.Controls.Add(this.label1);
             this.gbRegister.Location = new System.Drawing.Point(12, 12);
             this.gbRegister.Name = "gbRegister";
             this.gbRegister.Size = new System.Drawing.Size(210, 100);
-            this.gbRegister.TabIndex = 1;
+            this.gbRegister.TabIndex = 0;
             this.gbRegister.TabStop = false;
             this.gbRegister.Text = "Register";
             // 
@@ -208,17 +209,17 @@
             this.btnAddUser.Location = new System.Drawing.Point(125, 43);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(75, 23);
-            this.btnAddUser.TabIndex = 7;
+            this.btnAddUser.TabIndex = 2;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
             this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
-            // tbAddUsername
+            // txtAddUsername
             // 
-            this.tbAddUsername.Location = new System.Drawing.Point(21, 43);
-            this.tbAddUsername.Name = "tbAddUsername";
-            this.tbAddUsername.Size = new System.Drawing.Size(100, 22);
-            this.tbAddUsername.TabIndex = 1;
+            this.txtAddUsername.Location = new System.Drawing.Point(21, 43);
+            this.txtAddUsername.Name = "txtAddUsername";
+            this.txtAddUsername.Size = new System.Drawing.Size(100, 22);
+            this.txtAddUsername.TabIndex = 1;
             // 
             // label1
             // 
@@ -236,7 +237,7 @@
             this.gbSearch.Location = new System.Drawing.Point(717, 241);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Size = new System.Drawing.Size(200, 100);
-            this.gbSearch.TabIndex = 1;
+            this.gbSearch.TabIndex = 3;
             this.gbSearch.TabStop = false;
             // 
             // btnSearchDeal
@@ -256,17 +257,17 @@
             this.tbSearch.Size = new System.Drawing.Size(100, 22);
             this.tbSearch.TabIndex = 5;
             // 
-            // gbLikeDislike
+            // grpLikeDislike
             // 
-            this.gbLikeDislike.Controls.Add(this.rbDislikeDeal);
-            this.gbLikeDislike.Controls.Add(this.rbLikeDeal);
-            this.gbLikeDislike.Controls.Add(this.btnChoose);
-            this.gbLikeDislike.Enabled = false;
-            this.gbLikeDislike.Location = new System.Drawing.Point(478, 241);
-            this.gbLikeDislike.Name = "gbLikeDislike";
-            this.gbLikeDislike.Size = new System.Drawing.Size(226, 100);
-            this.gbLikeDislike.TabIndex = 1;
-            this.gbLikeDislike.TabStop = false;
+            this.grpLikeDislike.Controls.Add(this.rbDislikeDeal);
+            this.grpLikeDislike.Controls.Add(this.rbLikeDeal);
+            this.grpLikeDislike.Controls.Add(this.btnChoose);
+            this.grpLikeDislike.Enabled = false;
+            this.grpLikeDislike.Location = new System.Drawing.Point(478, 241);
+            this.grpLikeDislike.Name = "grpLikeDislike";
+            this.grpLikeDislike.Size = new System.Drawing.Size(226, 100);
+            this.grpLikeDislike.TabIndex = 1;
+            this.grpLikeDislike.TabStop = false;
             // 
             // rbDislikeDeal
             // 
@@ -275,13 +276,13 @@
             this.rbDislikeDeal.Name = "rbDislikeDeal";
             this.rbDislikeDeal.Size = new System.Drawing.Size(103, 21);
             this.rbDislikeDeal.TabIndex = 10;
-            this.rbDislikeDeal.TabStop = true;
             this.rbDislikeDeal.Text = "Dislike Deal";
             this.rbDislikeDeal.UseVisualStyleBackColor = true;
             // 
             // rbLikeDeal
             // 
             this.rbLikeDeal.AutoSize = true;
+            this.rbLikeDeal.Checked = true;
             this.rbLikeDeal.Location = new System.Drawing.Point(21, 21);
             this.rbLikeDeal.Name = "rbLikeDeal";
             this.rbLikeDeal.Size = new System.Drawing.Size(88, 21);
@@ -354,7 +355,7 @@
             this.Controls.Add(this.gbLogin);
             this.Controls.Add(this.gbRegister);
             this.Controls.Add(this.gbSearch);
-            this.Controls.Add(this.gbLikeDislike);
+            this.Controls.Add(this.grpLikeDislike);
             this.Controls.Add(this.gbDeals);
             this.Name = "Form1";
             this.Text = "Shopping Deals";
@@ -367,8 +368,8 @@
             this.gbRegister.PerformLayout();
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
-            this.gbLikeDislike.ResumeLayout(false);
-            this.gbLikeDislike.PerformLayout();
+            this.grpLikeDislike.ResumeLayout(false);
+            this.grpLikeDislike.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -381,24 +382,24 @@
         private System.Windows.Forms.GroupBox gbDeals;
         private System.Windows.Forms.DateTimePicker dtpExpireDate;
         private System.Windows.Forms.Button btnAddDeal;
-        private System.Windows.Forms.TextBox tbPrice;
-        private System.Windows.Forms.TextBox tbProductToAdd;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtProductToAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gbLogin;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox tbLogin;
+        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbRegister;
         private System.Windows.Forms.Button btnAddUser;
-        private System.Windows.Forms.TextBox tbAddUsername;
+        private System.Windows.Forms.TextBox txtAddUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbSearch;
         private System.Windows.Forms.Button btnSearchDeal;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.GroupBox gbLikeDislike;
+        private System.Windows.Forms.GroupBox grpLikeDislike;
         private System.Windows.Forms.Button btnChoose;
         private System.Windows.Forms.ListBox lstDeals;
         private System.Windows.Forms.Label label2;

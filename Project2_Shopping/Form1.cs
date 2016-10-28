@@ -19,6 +19,11 @@ namespace Project2_Shopping
 {
     public partial class Form1 : Form
     {
+
+        List<String> users = new List<string>();
+        string currentUser;
+        const string USERS_FILE = "users.dat";
+        bool LoggedIn = false;
         public Form1()
         {
             InitializeComponent();
@@ -33,50 +38,107 @@ namespace Project2_Shopping
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             lstDeals.Items.Add("No Deals at this Time");
-            //dtpExpireDate.Format = DateTimePickerFormat.Custom;
-            //dtpExpireDate.CustomFormat = "MM/dd/yyyy";
+            dtpExpireDate.MinDate = DateTime.Today;
+
+            StreamReader inputFile;
+
+            try
+            {
+                inputFile = new StreamReader(USERS_FILE);
+                while (!inputFile.EndOfStream)
+                {
+                    users.Add(inputFile.ReadLine());
+                }
+
+                inputFile.Close();
+            }
+            catch (Exception)
+            {
+
+                lblstatus.Text = "Error reading users file";
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            StreamReader inputfile = new StreamReader("users.dat");
-            if (tbLogin.Text == "")
+            string loginText = txtLogin.Text;
+            if (loginText.Trim() == "")
             {
-                lblstatus.Text = "Enter a username";
-                tbLogin.Focus();
+                lblstatus.Text = "Enter A Username";
+                txtLogin.Text = "";
+                txtLogin.Focus();
+                return;
             }
-            else
+
+            foreach (var user in users)
             {
-                string users = inputfile.ReadLine();
-                //soooooo this wont work. i think 
-                while (!inputfile.EndOfStream)
+                if (loginText == user.ToString())
                 {
-                    if (users.Contains(tbLogin.Text))
-                    {
-                        lblstatus.Text = "Welcome";
-                        btnLogin.Enabled = false;
-                        btnLogout.Enabled = true;
-                    }
+                    lblstatus.Text = "Welcome back!";
+                    LoggedIn = true;
+                    btnLogin.Enabled = false;
+                    btnLogout.Enabled = true;
+                    grpLikeDislike.Enabled = true;
+                    currentUser = loginText;
                 }
-                inputfile.Close();
+                else
+                {
+                    lblstatus.Text = "Username doesn't exist";
+                    
+                }
             }
+
+
+
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            StreamWriter outputfile = new StreamWriter("users.dat");
-            if (tbAddUsername.Text == "")
+            string newUser=txtAddUsername.Text;
+            if (newUser.Trim() == "")
             {
                 lblstatus.Text = "Enter a username";
-                tbAddUsername.Focus();
+                txtAddUsername.Focus();
+                return;
+
             }
-            else
+
+            foreach (var user in users)
             {
-                outputfile.WriteLine(tbAddUsername.Text);
-                lblstatus.Text="Just added a new user";
+                if (txtAddUsername.Text==user)
+                {
+                    lblstatus.Text = "User already exists";
+                    return;
+                }
             }
-            outputfile.Close();
+            users.Add(newUser);
+
+            StreamWriter outputFile = new StreamWriter(USERS_FILE);
+            try
+            {
+               
+                foreach (var user in users)
+                {
+                    outputFile.WriteLine(user.ToString());
+                }
+                outputFile.Close();
+
+
+            }
+            catch (Exception)
+            {
+
+                lblstatus.Text = "Error writing to file";
+                return;
+            }
+
+            lblstatus.Text = "User added successfully";
+
+
+
+
         }
 
         private void btnAddDeal_Click(object sender, EventArgs e)
@@ -86,16 +148,16 @@ namespace Project2_Shopping
             ///   if(tbPrice.Text == "" && !double.TryParse(tbPrice.Text, out price) && price < 0)
             /////
             double price = 0;
-            if (tbProductToAdd.Text == "")
+            if (txtProductToAdd.Text == "")
             {
                 lblstatus.Text = "Enter a product name";
             }
-            else if (tbPrice.Text == "")
-            
+            else if (txtPrice.Text == "")
+
             {
                 lblstatus.Text = ("Price is not a vaild amount");
             }
-            else if (!double.TryParse(tbPrice.Text, out price))
+            else if (!double.TryParse(txtPrice.Text, out price))
             {
                 lblstatus.Text = ("Price is not a vaild amount");
             }
@@ -109,12 +171,21 @@ namespace Project2_Shopping
         {
             if (tbSearch.Text == "")
             {
-                lblstatus.Text="Search name cannot be blank";
+                lblstatus.Text = "Search name cannot be blank";
             }
             else
             {
 
             }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            LoggedIn = false;
+            currentUser = null;
+            btnLogin.Enabled = true;
+            btnLogout.Enabled = false;
+            grpLikeDislike.Enabled = false;
         }
     }
 }
