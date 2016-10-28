@@ -32,7 +32,7 @@
             this.dtpExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddDeal = new System.Windows.Forms.Button();
             this.tbPrice = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbProductToAdd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,11 +55,14 @@
             this.lstDeals = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lblstatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.gbDeals.SuspendLayout();
             this.gbLogin.SuspendLayout();
             this.gbRegister.SuspendLayout();
             this.gbSearch.SuspendLayout();
             this.gbLikeDislike.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDeals
@@ -67,7 +70,7 @@
             this.gbDeals.Controls.Add(this.dtpExpireDate);
             this.gbDeals.Controls.Add(this.btnAddDeal);
             this.gbDeals.Controls.Add(this.tbPrice);
-            this.gbDeals.Controls.Add(this.textBox4);
+            this.gbDeals.Controls.Add(this.tbProductToAdd);
             this.gbDeals.Controls.Add(this.label4);
             this.gbDeals.Controls.Add(this.label5);
             this.gbDeals.Controls.Add(this.label6);
@@ -95,6 +98,7 @@
             this.btnAddDeal.TabIndex = 6;
             this.btnAddDeal.Text = "Add Deal";
             this.btnAddDeal.UseVisualStyleBackColor = true;
+            this.btnAddDeal.Click += new System.EventHandler(this.btnAddDeal_Click);
             // 
             // tbPrice
             // 
@@ -103,12 +107,12 @@
             this.tbPrice.Size = new System.Drawing.Size(100, 22);
             this.tbPrice.TabIndex = 3;
             // 
-            // textBox4
+            // tbProductToAdd
             // 
-            this.textBox4.Location = new System.Drawing.Point(21, 43);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 4;
+            this.tbProductToAdd.Location = new System.Drawing.Point(21, 43);
+            this.tbProductToAdd.Name = "tbProductToAdd";
+            this.tbProductToAdd.Size = new System.Drawing.Size(100, 22);
+            this.tbProductToAdd.TabIndex = 4;
             // 
             // label4
             // 
@@ -152,6 +156,7 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.Enabled = false;
             this.btnLogout.Location = new System.Drawing.Point(127, 58);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 23);
@@ -167,6 +172,7 @@
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // tbLogin
             // 
@@ -204,6 +210,7 @@
             this.btnAddUser.TabIndex = 7;
             this.btnAddUser.Text = "Add User";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // tbAddUsername
             // 
@@ -239,6 +246,7 @@
             this.btnSearchDeal.TabIndex = 9;
             this.btnSearchDeal.Text = "Search Deal";
             this.btnSearchDeal.UseVisualStyleBackColor = true;
+            this.btnSearchDeal.Click += new System.EventHandler(this.btnSearchDeal_Click);
             // 
             // tbSearch
             // 
@@ -317,11 +325,28 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblstatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 365);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(938, 22);
+            this.statusStrip1.TabIndex = 9;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lblstatus
+            // 
+            this.lblstatus.Name = "lblstatus";
+            this.lblstatus.Size = new System.Drawing.Size(0, 17);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 353);
+            this.ClientSize = new System.Drawing.Size(938, 387);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lstDeals);
@@ -343,6 +368,8 @@
             this.gbSearch.PerformLayout();
             this.gbLikeDislike.ResumeLayout(false);
             this.gbLikeDislike.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +381,7 @@
         private System.Windows.Forms.DateTimePicker dtpExpireDate;
         private System.Windows.Forms.Button btnAddDeal;
         private System.Windows.Forms.TextBox tbPrice;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbProductToAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
@@ -377,6 +404,8 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.RadioButton rbDislikeDeal;
         private System.Windows.Forms.RadioButton rbLikeDeal;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lblstatus;
     }
 }
 
