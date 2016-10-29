@@ -15,6 +15,8 @@ namespace Project2_Shopping
         private double mPrice;
         private List<string> mUserLikes = new List<string>();
         private List<string> mUserDislikes = new List<string>();
+        private string mWriteLikes;
+        private string mWriteDislikes;
 
 
         public string MProduct
@@ -39,7 +41,7 @@ namespace Project2_Shopping
 
             set
             {
-                mLikes = value;
+                mLikes = mUserLikes.Count();
             }
         }
 
@@ -52,7 +54,7 @@ namespace Project2_Shopping
 
             set
             {
-                mDislikes = value;
+                mDislikes = mUserDislikes.Count();
             }
         }
 
@@ -108,19 +110,48 @@ namespace Project2_Shopping
             }
         }
 
-        //creates a new deal
-        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes, List<String> pUserLikes, List<String> pUserDislikes)
+        public string MWriteLikes
         {
-            MProduct = pProduct;
-            MPrice = pPrice;
-            MDate = pDate;
-            MLikes = pLikes;
-            MDislikes = pDislikes;
+            get
+            {
+                return mWriteLikes;
+            }
+
+            set
+            {
+                mWriteLikes = value;
+            }
+        }
+
+        public string MWriteDislikes
+        {
+            get
+            {
+                return mWriteDislikes;
+            }
+
+            set
+            {
+                mWriteDislikes = value;
+            }
+        }
+
+        //creates a new deal
+        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes, List<String> pUserLikes, List<String> pUserDislikes,string pWriteLikes, string pWriteDislikes)
+        {
+            mProduct = pProduct;
+            mPrice = pPrice;
+            mDate = pDate;
+            mLikes = pLikes;
+            mDislikes = pDislikes;
             mUserLikes = pUserLikes;
             mUserDislikes = pUserDislikes;
+            mWriteLikes = pWriteLikes;
+            mWriteDislikes = pWriteDislikes;
         }
 
         //over rides the toString()
+        //right now when this is called the like and dislikes are not updated properly
         public override string ToString()
         {
             return mProduct + ": for " + MPrice.ToString("c") + " expires on " + mDate + " Likes:" + mLikes + " Dislikes:" + mDislikes;

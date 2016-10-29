@@ -49,8 +49,8 @@
             this.btnSearchDeal = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.grpLikeDislike = new System.Windows.Forms.GroupBox();
-            this.rbDislikeDeal = new System.Windows.Forms.RadioButton();
-            this.rbLikeDeal = new System.Windows.Forms.RadioButton();
+            this.radDislikeDeal = new System.Windows.Forms.RadioButton();
+            this.radLikeDeal = new System.Windows.Forms.RadioButton();
             this.btnChoose = new System.Windows.Forms.Button();
             this.lstDeals = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -259,8 +259,8 @@
             // 
             // grpLikeDislike
             // 
-            this.grpLikeDislike.Controls.Add(this.rbDislikeDeal);
-            this.grpLikeDislike.Controls.Add(this.rbLikeDeal);
+            this.grpLikeDislike.Controls.Add(this.radDislikeDeal);
+            this.grpLikeDislike.Controls.Add(this.radLikeDeal);
             this.grpLikeDislike.Controls.Add(this.btnChoose);
             this.grpLikeDislike.Enabled = false;
             this.grpLikeDislike.Location = new System.Drawing.Point(478, 241);
@@ -269,27 +269,27 @@
             this.grpLikeDislike.TabIndex = 1;
             this.grpLikeDislike.TabStop = false;
             // 
-            // rbDislikeDeal
+            // radDislikeDeal
             // 
-            this.rbDislikeDeal.AutoSize = true;
-            this.rbDislikeDeal.Location = new System.Drawing.Point(115, 21);
-            this.rbDislikeDeal.Name = "rbDislikeDeal";
-            this.rbDislikeDeal.Size = new System.Drawing.Size(103, 21);
-            this.rbDislikeDeal.TabIndex = 10;
-            this.rbDislikeDeal.Text = "Dislike Deal";
-            this.rbDislikeDeal.UseVisualStyleBackColor = true;
+            this.radDislikeDeal.AutoSize = true;
+            this.radDislikeDeal.Location = new System.Drawing.Point(115, 21);
+            this.radDislikeDeal.Name = "radDislikeDeal";
+            this.radDislikeDeal.Size = new System.Drawing.Size(103, 21);
+            this.radDislikeDeal.TabIndex = 10;
+            this.radDislikeDeal.Text = "Dislike Deal";
+            this.radDislikeDeal.UseVisualStyleBackColor = true;
             // 
-            // rbLikeDeal
+            // radLikeDeal
             // 
-            this.rbLikeDeal.AutoSize = true;
-            this.rbLikeDeal.Checked = true;
-            this.rbLikeDeal.Location = new System.Drawing.Point(21, 21);
-            this.rbLikeDeal.Name = "rbLikeDeal";
-            this.rbLikeDeal.Size = new System.Drawing.Size(88, 21);
-            this.rbLikeDeal.TabIndex = 9;
-            this.rbLikeDeal.TabStop = true;
-            this.rbLikeDeal.Text = "Like Deal";
-            this.rbLikeDeal.UseVisualStyleBackColor = true;
+            this.radLikeDeal.AutoSize = true;
+            this.radLikeDeal.Checked = true;
+            this.radLikeDeal.Location = new System.Drawing.Point(21, 21);
+            this.radLikeDeal.Name = "radLikeDeal";
+            this.radLikeDeal.Size = new System.Drawing.Size(88, 21);
+            this.radLikeDeal.TabIndex = 9;
+            this.radLikeDeal.TabStop = true;
+            this.radLikeDeal.Text = "Like Deal";
+            this.radLikeDeal.UseVisualStyleBackColor = true;
             // 
             // btnChoose
             // 
@@ -404,8 +404,8 @@
         private System.Windows.Forms.ListBox lstDeals;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.RadioButton rbDislikeDeal;
-        private System.Windows.Forms.RadioButton rbLikeDeal;
+        private System.Windows.Forms.RadioButton radDislikeDeal;
+        private System.Windows.Forms.RadioButton radLikeDeal;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblstatus;
         private System.Windows.Forms.TextBox txtPrice;

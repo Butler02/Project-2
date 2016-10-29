@@ -89,7 +89,11 @@ namespace Project2_Shopping
                     price = double.Parse(fields[1]);
                     date = fields[2];
                     //set a string array equal to fields [3] which I know to be the likes and split it on the plus sign
-                    string[] likes = fields[3].Split('+');
+                    string[] likes=new string[] { "" };
+                    if (fields[3] != "")
+                    {
+                        likes = fields[3].Split('+');
+                    }
                     //This if statement determines if something is in the likes position
                     //if nothing is there it sets total likes to 0, otherwise it sets 
                     //total likes to the count of the array.
@@ -108,8 +112,13 @@ namespace Project2_Shopping
 
 
                     //set a string array equal to fields [4] which I know to be the dislikes and split it on the plus sign
-                    string[] dislikes = fields[4].Split('+');
-
+                    
+                    string[] dislikes=new string[] { "" };
+                    if (fields[4]!="")
+                    {
+                        dislikes = fields[4].Split('+');
+                    }
+                    
                     //This if statement determines if something is in the dislikes position
                     //if nothing is there it sets total dislikes to 0, otherwise it sets 
                     //total dislikes to the count of the array.
@@ -126,7 +135,7 @@ namespace Project2_Shopping
                         mUserDislikes.Add(dislike);
                     }
 
-                    Deals newDeal = new Deals(dealName, price, date, totalLikes, totalDislikes, mUserLikes, mUserDislikes);
+                    Deals newDeal = new Deals(dealName, price, date, totalLikes, totalDislikes, mUserLikes, mUserDislikes, fields[3], fields[4]);
                     Deals.Add(newDeal);
                 }
 
@@ -160,23 +169,22 @@ namespace Project2_Shopping
                 txtLogin.Focus();
                 return;
             }
+            
 
-            foreach (var user in users)
+            if (users.Contains(loginText))
             {
-                if (loginText == user.ToString())
-                {
-                    lblstatus.Text = "Welcome back!";
-                    LoggedIn = true;
-                    btnLogin.Enabled = false;
-                    btnLogout.Enabled = true;
-                    grpLikeDislike.Enabled = true;
-                    currentUser = loginText;
-                }
-                else
-                {
-                    lblstatus.Text = "Username doesn't exist";
+                lblstatus.Text = "Welcome back!";
+                LoggedIn = true;
+                btnLogin.Enabled = false;
+                btnLogout.Enabled = true;
+                grpLikeDislike.Enabled = true;
+                currentUser = loginText;
+            }
+            else
+            {
+                lblstatus.Text = "Username doesn't exist";
 
-                }
+
             }
 
 
@@ -194,6 +202,72 @@ namespace Project2_Shopping
 
         }
 
+        private void Write()
+        {
+            StreamWriter outputFile = new StreamWriter(DEALS_FILE);
+            try
+            {
+                //should run through the deals count - 1 times
+                //for (int i = 0; i < Deals.Count - 1; i++)
+                //{
+                //    //should run through the liset of deals user like count -
+                //    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 1; j++)
+                //    {
+                //        // MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
+                //        //this adds the token + sign to the  user likes until it gets to the 
+                //        //count length then it does not add one
+                //        if (j != (Deals[i].UserLikes[j].Count() - 1))
+                //        {
+                //            Deals[i].MWriteLikes += Deals[i].UserLikes[j] + "+";
+                //        }
+                //        else
+                //        {
+                //            writeLikes += Deals[i].UserLikes[j];
+                //        }
+                //    }
+
+                //}
+                //works the same as above
+                //for (int i = 0; i < Deals.Count - 1; i++)
+                //{
+                //    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 1; j++)
+                //    {
+                //        if (Deals[i].UserDislikes[j]=="")
+                //        {
+                //            writeLikes = "";
+                //            break;//this may need to be a return
+                //        }
+                //        if (j != Deals[i].UserDislikes[j].Count() - 1)
+                //        {
+                //            writeDislikes += Deals[i].UserDislikes[j] + "+";
+                //        }
+                //        else
+                //        {
+                //            writeDislikes += Deals[i].UserDislikes[j];
+                //        }
+
+                //    }
+
+                //}
+                foreach (var deal in Deals)
+                {
+                    if (deal.UserLikes == null)
+                    {
+
+                    }
+                    outputFile.WriteLine(deal.MProduct + "," + deal.MPrice.ToString("f") + "," + deal.MDate + "," + deal.MWriteLikes + "," + deal.MWriteDislikes);
+                }
+                outputFile.Close();
+
+
+            }
+            catch (Exception)
+            {
+
+                lblstatus.Text = "Error writing to deals file";
+                return;
+            }
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             string newUser = txtAddUsername.Text;
@@ -246,7 +320,7 @@ namespace Project2_Shopping
 
             double price = 0;
             string product = txtProductToAdd.Text;
-            string date = dtpExpireDate.Value.Date.ToString();
+            string date = dtpExpireDate.Value.ToString("MM/dd/yyyy");
 
             if (product == "")
             {
@@ -269,64 +343,10 @@ namespace Project2_Shopping
             mUserDislikes = new List<string>();
             mUserLikes.Add("");
             mUserDislikes.Add("");
-            Deals newDeal = new Deals(product, price, date, 0, 0, mUserLikes, mUserDislikes);
+            Deals newDeal = new Deals(product, price, date, 0, 0, mUserLikes, mUserDislikes,"","");
             Deals.Add(newDeal);
-            string writeLikes = "";
-            string writeDislikes = "";
-            StreamWriter outputFile = new StreamWriter(DEALS_FILE);
-            try
-            {
-                //need to think of a way to write all users that like/dislike a product
-                for (int i = 0; i < Deals.Count - 1; i++)
-                {
-                    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 1; j++)
-                    {
-                       // MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
-                        if (j != (Deals[i].UserLikes[j].Count() - 1))
-                        {
-                            writeLikes += Deals[i].UserLikes[j] + "+";
-                        }
-                        else
-                        {
-                            writeLikes += Deals[i].UserLikes[j];
-                        }
-                    }
 
-                }
-
-                for (int i = 0; i < Deals.Count - 1; i++)
-                {
-                    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 1; j++)
-                    {
-                        if (j != Deals[i].UserDislikes[j].Count() - 1)
-                        {
-                            writeDislikes += Deals[i].UserDislikes[j] + "+";
-                        }
-                        else
-                        {
-                            writeDislikes += Deals[i].UserDislikes[j];
-                        }
-                    }
-
-                }
-                foreach (var deal in Deals)
-                {
-                    if (deal.UserLikes == null)
-                    {
-
-                    }
-                    outputFile.WriteLine(deal.MProduct + "," + deal.MPrice.ToString("c") + "," + deal.MDate + "," + writeLikes + "," + writeDislikes);
-                }
-                outputFile.Close();
-
-
-            }
-            catch (Exception)
-            {
-
-                lblstatus.Text = "Error writing to deals file";
-                return;
-            }
+            Write();
 
             lblstatus.Text = "Deal added";
 
@@ -374,6 +394,71 @@ namespace Project2_Shopping
             string writeLikes;
             string writeDislikes;
             int selectedIndex = lstDeals.SelectedIndex;
+            if (selectedIndex<0)
+            {
+                lblstatus.Text = "No deal selected";
+                return;
+            } 
+
+            //decision structure if user has chosen to like a deal
+            if (radLikeDeal.Checked)
+            {
+                if (Deals[selectedIndex].UserLikes.Contains(currentUser))
+                {
+                    lblstatus.Text = "You already liked this deal";
+                    return;
+                }
+                //suppose to check if user has already chosen another choice
+                if (!Deals[selectedIndex].UserLikes.Contains(currentUser)&& Deals[selectedIndex].UserDislikes.Contains(currentUser))
+                {
+                    Deals[selectedIndex].UserDislikes.Remove(currentUser);
+                }
+
+
+                //this write will not work properly if user changes decision
+                //need to figure out way to remove or write to the writedislike/like
+                if (Deals[selectedIndex].UserLikes.Count > 0)
+                {
+                    Deals[selectedIndex].MWriteLikes = "+" + currentUser;
+                }
+                else
+                {
+                    Deals[selectedIndex].MWriteLikes = currentUser;
+                }
+                Deals[selectedIndex].UserLikes.Add(currentUser);
+                lblstatus.Text = "You now liked this deal";
+            }
+            //decision structure if user has chosen to dislike a deal
+            else if (radDislikeDeal.Checked)
+            {
+                if (Deals[selectedIndex].UserDislikes.Contains(currentUser))
+                {
+                    lblstatus.Text = "You already disliked this deal";
+                    return;
+                }
+                if (Deals[selectedIndex].UserLikes.Contains(currentUser) && !Deals[selectedIndex].UserDislikes.Contains(currentUser))
+                {
+                    Deals[selectedIndex].UserLikes.Remove(currentUser);
+                }
+                Deals[selectedIndex].UserDislikes.Add(currentUser);
+                lblstatus.Text = "You disliked this deal";
+
+                //this write will not work properly if user changes decision
+                //need to figure out way to remove or write to the writedislike/like
+                if (Deals[selectedIndex].UserDislikes.Count>1)
+                {
+                    Deals[selectedIndex].MWriteDislikes = "+"+currentUser;
+                }
+                else
+                {
+                    Deals[selectedIndex].MWriteDislikes = currentUser;
+                }
+            }
+
+            Write();
+            Display();
+
+
         }
     }
 }
