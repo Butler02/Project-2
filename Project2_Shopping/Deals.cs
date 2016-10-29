@@ -13,8 +13,8 @@ namespace Project2_Shopping
         private int mDislikes;
         private string mDate;
         private double mPrice;
-        private List<string> userLikes=new List<string>();
-        private List<string> userDislikes = new List<string>();
+        private List<string> mUserLikes = new List<string>();
+        private List<string> mUserDislikes = new List<string>();
 
 
         public string MProduct
@@ -86,12 +86,12 @@ namespace Project2_Shopping
         {
             get
             {
-                return userLikes;
+                return mUserLikes;
             }
 
             set
             {
-                userLikes = value;
+                mUserLikes = value;
             }
         }
 
@@ -99,29 +99,31 @@ namespace Project2_Shopping
         {
             get
             {
-                return userDislikes;
+                return mUserDislikes;
             }
 
             set
             {
-                userDislikes = value;
+                mUserDislikes = value;
             }
         }
 
         //creates a new deal
-        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes)
+        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes, List<String> pUserLikes, List<String> pUserDislikes)
         {
             MProduct = pProduct;
             MPrice = pPrice;
             MDate = pDate;
             MLikes = pLikes;
             MDislikes = pDislikes;
+            mUserLikes = pUserLikes;
+            mUserDislikes = pUserDislikes;
         }
 
         //over rides the toString()
         public override string ToString()
         {
-            return mProduct+": for "+MPrice+" expires on "+mDate+" Likes:"+mLikes+" Dislikes:"+mDislikes;
+            return mProduct + ": for " + MPrice.ToString("c") + " expires on " + mDate + " Likes:" + mLikes + " Dislikes:" + mDislikes;
         }
 
 

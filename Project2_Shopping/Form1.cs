@@ -26,6 +26,8 @@ namespace Project2_Shopping
         const string USERS_FILE = "users.dat";
         const string DEALS_FILE = "deals.dat";
         bool LoggedIn = false;
+        List<string> mUserLikes;
+        List<string> mUserDislikes;
         public Form1()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace Project2_Shopping
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -68,8 +70,8 @@ namespace Project2_Shopping
             string dealName;
             double price;
             string date;
-            
-            
+
+
             //This try block reads from the deals file and adds the information to a deals object and deals list object
             try
             {
@@ -78,6 +80,8 @@ namespace Project2_Shopping
                 {
                     int totalLikes;
                     int totalDislikes;
+                    mUserDislikes = new List<string>();
+                    mUserLikes = new List<string>();
                     //reads file and splits the string after a comma
                     string entireLine = inputFile.ReadLine();
                     string[] fields = entireLine.Split(',');
@@ -97,6 +101,11 @@ namespace Project2_Shopping
                     {
                         totalLikes = likes.Count();
                     }
+                    foreach (var like in likes)
+                    {
+                        mUserLikes.Add(like);
+                    }
+
 
                     //set a string array equal to fields [4] which I know to be the dislikes and split it on the plus sign
                     string[] dislikes = fields[4].Split('+');
@@ -104,7 +113,7 @@ namespace Project2_Shopping
                     //This if statement determines if something is in the dislikes position
                     //if nothing is there it sets total dislikes to 0, otherwise it sets 
                     //total dislikes to the count of the array.
-                    if (fields[4]=="")
+                    if (fields[4] == "")
                     {
                         totalDislikes = 0;
                     }
@@ -112,9 +121,12 @@ namespace Project2_Shopping
                     {
                         totalDislikes = dislikes.Count();
                     }
-                    
+                    foreach (var dislike in dislikes)
+                    {
+                        mUserDislikes.Add(dislike);
+                    }
 
-                    Deals newDeal = new Deals(dealName,price,date,totalLikes,totalDislikes);
+                    Deals newDeal = new Deals(dealName, price, date, totalLikes, totalDislikes, mUserLikes, mUserDislikes);
                     Deals.Add(newDeal);
                 }
 
@@ -125,13 +137,17 @@ namespace Project2_Shopping
 
                 lblstatus.Text = "Error reading deals file";
             }
-            if (Deals.Count<=0)
+            if (Deals.Count <= 0)
             {
                 lstDeals.Items.Add("No Deals at this Time");
             }
-              
-            
-            
+            else
+            {
+                Display();
+            }
+
+
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -159,7 +175,7 @@ namespace Project2_Shopping
                 else
                 {
                     lblstatus.Text = "Username doesn't exist";
-                    
+
                 }
             }
 
@@ -170,17 +186,17 @@ namespace Project2_Shopping
         private void Display()
         {
             lstDeals.Items.Clear();
-                foreach (var deal in Deals)
-                {
-                    lstDeals.Items.Add(deal.ToString());
-                }
-            
-            
+            foreach (var deal in Deals)
+            {
+                lstDeals.Items.Add(deal.ToString());
+            }
+
+
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            string newUser=txtAddUsername.Text;
+            string newUser = txtAddUsername.Text;
             if (newUser.Trim() == "")
             {
                 lblstatus.Text = "Enter a username";
@@ -191,7 +207,7 @@ namespace Project2_Shopping
 
             foreach (var user in users)
             {
-                if (txtAddUsername.Text==user)
+                if (txtAddUsername.Text == user)
                 {
                     lblstatus.Text = "User already exists";
                     return;
@@ -202,7 +218,7 @@ namespace Project2_Shopping
             StreamWriter outputFile = new StreamWriter(USERS_FILE);
             try
             {
-               
+
                 foreach (var user in users)
                 {
                     outputFile.WriteLine(user.ToString());
@@ -227,11 +243,11 @@ namespace Project2_Shopping
 
         private void btnAddDeal_Click(object sender, EventArgs e)
         {
-            
+
             double price = 0;
-            string product =txtProductToAdd.Text;
+            string product = txtProductToAdd.Text;
             string date = dtpExpireDate.Value.Date.ToString();
-            
+
             if (product == "")
             {
                 lblstatus.Text = "Enter a product name";
@@ -249,17 +265,58 @@ namespace Project2_Shopping
             {
                 lblstatus.Text = ("Price is not a vaild amount");
             }
-            Deals newDeal = new Deals(product, price, date, 0, 0);
+            mUserLikes = new List<string>();
+            mUserDislikes = new List<string>();
+            mUserLikes.Add("");
+            mUserDislikes.Add("");
+            Deals newDeal = new Deals(product, price, date, 0, 0, mUserLikes, mUserDislikes);
             Deals.Add(newDeal);
-
+            string writeLikes = "";
+            string writeDislikes = "";
             StreamWriter outputFile = new StreamWriter(DEALS_FILE);
             try
             {
                 //need to think of a way to write all users that like/dislike a product
-                //foreach (var deal in Deals)
-                //{
-                //    outputFile.WriteLine(deal.MProduct+","+deal.MPrice.ToString()+","+deal.MDate+",,");
-                //}
+                for (int i = 0; i < Deals.Count - 1; i++)
+                {
+                    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 1; j++)
+                    {
+                       // MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
+                        if (j != (Deals[i].UserLikes[j].Count() - 1))
+                        {
+                            writeLikes += Deals[i].UserLikes[j] + "+";
+                        }
+                        else
+                        {
+                            writeLikes += Deals[i].UserLikes[j];
+                        }
+                    }
+
+                }
+
+                for (int i = 0; i < Deals.Count - 1; i++)
+                {
+                    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 1; j++)
+                    {
+                        if (j != Deals[i].UserDislikes[j].Count() - 1)
+                        {
+                            writeDislikes += Deals[i].UserDislikes[j] + "+";
+                        }
+                        else
+                        {
+                            writeDislikes += Deals[i].UserDislikes[j];
+                        }
+                    }
+
+                }
+                foreach (var deal in Deals)
+                {
+                    if (deal.UserLikes == null)
+                    {
+
+                    }
+                    outputFile.WriteLine(deal.MProduct + "," + deal.MPrice.ToString("c") + "," + deal.MDate + "," + writeLikes + "," + writeDislikes);
+                }
                 outputFile.Close();
 
 
@@ -293,13 +350,13 @@ namespace Project2_Shopping
                 if (index != -1)
                 {
                     lstDeals.SetSelected(index, true);
-                   
+
                 }
                 else
                 {
                     lblstatus.Text = "Item not Found";
                 }
-               
+
             }
         }
 
@@ -310,6 +367,13 @@ namespace Project2_Shopping
             btnLogin.Enabled = true;
             btnLogout.Enabled = false;
             grpLikeDislike.Enabled = false;
+        }
+
+        private void btnChoose_Click(object sender, EventArgs e)
+        {
+            string writeLikes;
+            string writeDislikes;
+            int selectedIndex = lstDeals.SelectedIndex;
         }
     }
 }

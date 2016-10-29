@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDeals = new System.Windows.Forms.GroupBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.dtpExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddDeal = new System.Windows.Forms.Button();
             this.txtProductToAdd = new System.Windows.Forms.TextBox();
@@ -56,7 +57,6 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblstatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.gbDeals.SuspendLayout();
             this.gbLogin.SuspendLayout();
             this.gbRegister.SuspendLayout();
@@ -80,6 +80,13 @@
             this.gbDeals.TabIndex = 2;
             this.gbDeals.TabStop = false;
             this.gbDeals.Text = "Deals";
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(19, 103);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 22);
+            this.txtPrice.TabIndex = 9;
             // 
             // dtpExpireDate
             // 
@@ -292,6 +299,7 @@
             this.btnChoose.TabIndex = 8;
             this.btnChoose.Text = "Choose";
             this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // lstDeals
             // 
@@ -335,13 +343,6 @@
             // 
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(0, 17);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(19, 103);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtPrice.TabIndex = 9;
             // 
             // Form1
             // 
