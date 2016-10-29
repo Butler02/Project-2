@@ -34,8 +34,7 @@ namespace Project2_Shopping
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
-            //I think you should do Close();
-            //yes Sr. -Eric
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -228,10 +227,7 @@ namespace Project2_Shopping
 
         private void btnAddDeal_Click(object sender, EventArgs e)
         {
-            /////
-            ///tried to make this not as crappy but for some reason it wouldnt work like this:
-            ///   if(tbPrice.Text == "" && !double.TryParse(tbPrice.Text, out price) && price < 0)
-            /////
+            
             double price = 0;
             string product =txtProductToAdd.Text;
             string date = dtpExpireDate.Value.Date.ToString();
@@ -291,7 +287,19 @@ namespace Project2_Shopping
             }
             else
             {
-
+                //searches the listbox to find a deal using an input of a string
+                string stDeal = tbSearch.Text;
+                int index = lstDeals.FindString(stDeal, -1);
+                if (index != -1)
+                {
+                    lstDeals.SetSelected(index, true);
+                   
+                }
+                else
+                {
+                    lblstatus.Text = "Item not Found";
+                }
+               
             }
         }
 
