@@ -21,8 +21,10 @@ namespace Project2_Shopping
     {
 
         List<String> users = new List<string>();
+        List<Deals> Deals;
         string currentUser;
         const string USERS_FILE = "users.dat";
+        const string DEALS_FILE = "deals.dat";
         bool LoggedIn = false;
         public Form1()
         {
@@ -39,11 +41,12 @@ namespace Project2_Shopping
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            lstDeals.Items.Add("No Deals at this Time");
+            //sets the min date to the current date
             dtpExpireDate.MinDate = DateTime.Today;
 
             StreamReader inputFile;
 
+            //this try block gets user information from the users file
             try
             {
                 inputFile = new StreamReader(USERS_FILE);
@@ -59,6 +62,82 @@ namespace Project2_Shopping
 
                 lblstatus.Text = "Error reading users file";
             }
+
+            Deals = new List<Deals>();
+
+            //I created temperary variables to make the code easier to understand
+            string dealName;
+            double price;
+            string date;
+            
+            
+            //This try block reads from the deals file and adds the information to a deals object and deals list object
+            try
+            {
+                inputFile = new StreamReader(DEALS_FILE);
+                while (!inputFile.EndOfStream)
+                {
+                    int totalLikes;
+                    int totalDislikes;
+                    //reads file and splits the string after a comma
+                    string entireLine = inputFile.ReadLine();
+                    string[] fields = entireLine.Split(',');
+                    dealName = fields[0];
+                    price = double.Parse(fields[1]);
+                    date = fields[2];
+                    //set a string array equal to fields [3] which I know to be the likes and split it on the plus sign
+                    string[] likes = fields[3].Split('+');
+                    //This if statement determines if something is in the likes position
+                    //if nothing is there it sets total likes to 0, otherwise it sets 
+                    //total likes to the count of the array.
+                    if (fields[3] == "")
+                    {
+                        totalLikes = 0;
+                    }
+                    else
+                    {
+                        totalLikes = likes.Count();
+                    }
+
+                    //set a string array equal to fields [4] which I know to be the dislikes and split it on the plus sign
+                    string[] dislikes = fields[4].Split('+');
+
+                    //This if statement determines if something is in the dislikes position
+                    //if nothing is there it sets total dislikes to 0, otherwise it sets 
+                    //total dislikes to the count of the array.
+                    if (fields[4]=="")
+                    {
+                        totalDislikes = 0;
+                    }
+                    else
+                    {
+                        totalDislikes = dislikes.Count();
+                    }
+                    
+
+                    Deals newDeal = new Deals(dealName,price,date,totalLikes,totalDislikes);
+                    Deals.Add(newDeal);
+                }
+
+                inputFile.Close();
+            }
+            catch (Exception)
+            {
+
+                lblstatus.Text = "Error reading deals file";
+            }
+            if (Deals.Count>0)
+            {
+                foreach (var deal in Deals)
+                {
+                    lstDeals.Items.Add(deal.ToString());
+                }
+            }
+            else
+            {
+                lstDeals.Items.Add("No Deals at this Time");
+            }
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

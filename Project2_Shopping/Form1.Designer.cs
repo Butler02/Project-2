@@ -31,7 +31,6 @@
             this.gbDeals = new System.Windows.Forms.GroupBox();
             this.dtpExpireDate = new System.Windows.Forms.DateTimePicker();
             this.btnAddDeal = new System.Windows.Forms.Button();
-            this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtProductToAdd = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblstatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.txtPrice = new System.Windows.Forms.TextBox();
             this.gbDeals.SuspendLayout();
             this.gbLogin.SuspendLayout();
             this.gbRegister.SuspendLayout();
@@ -67,9 +67,9 @@
             // 
             // gbDeals
             // 
+            this.gbDeals.Controls.Add(this.txtPrice);
             this.gbDeals.Controls.Add(this.dtpExpireDate);
             this.gbDeals.Controls.Add(this.btnAddDeal);
-            this.gbDeals.Controls.Add(this.txtPrice);
             this.gbDeals.Controls.Add(this.txtProductToAdd);
             this.gbDeals.Controls.Add(this.label4);
             this.gbDeals.Controls.Add(this.label5);
@@ -100,13 +100,6 @@
             this.btnAddDeal.Text = "Add Deal";
             this.btnAddDeal.UseVisualStyleBackColor = true;
             this.btnAddDeal.Click += new System.EventHandler(this.btnAddDeal_Click);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.Location = new System.Drawing.Point(1521, 504);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtPrice.TabIndex = 3;
             // 
             // txtProductToAdd
             // 
@@ -343,6 +336,13 @@
             this.lblstatus.Name = "lblstatus";
             this.lblstatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Location = new System.Drawing.Point(19, 103);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 22);
+            this.txtPrice.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,7 +382,6 @@
         private System.Windows.Forms.GroupBox gbDeals;
         private System.Windows.Forms.DateTimePicker dtpExpireDate;
         private System.Windows.Forms.Button btnAddDeal;
-        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtProductToAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -408,6 +407,7 @@
         private System.Windows.Forms.RadioButton rbLikeDeal;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblstatus;
+        private System.Windows.Forms.TextBox txtPrice;
     }
 }
 

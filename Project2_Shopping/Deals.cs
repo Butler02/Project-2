@@ -6,11 +6,95 @@ using System.Threading.Tasks;
 
 namespace Project2_Shopping
 {
-    class _
+    class Deals
     {
         private string mProduct;
         private int mLikes;
         private int mDislikes;
+        private string mDate;
+        private double mPrice;
+
+
+        public string MProduct
+        {
+            get
+            {
+                return mProduct;
+            }
+
+            set
+            {
+                mProduct = value;
+            }
+        }
+
+        public int MLikes
+        {
+            get
+            {
+                return mLikes;
+            }
+
+            set
+            {
+                mLikes = value;
+            }
+        }
+
+        public int MDislikes
+        {
+            get
+            {
+                return mDislikes;
+            }
+
+            set
+            {
+                mDislikes = value;
+            }
+        }
+
+        public string MDate
+        {
+            get
+            {
+                return mDate;
+            }
+
+            set
+            {
+                mDate = value;
+            }
+        }
+
+        public double MPrice
+        {
+            get
+            {
+                return mPrice;
+            }
+
+            set
+            {
+                mPrice = value;
+            }
+        }
+
+        //creates a new deal
+        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes)
+        {
+            MProduct = pProduct;
+            MPrice = pPrice;
+            MDate = pDate;
+            MLikes = pLikes;
+            MDislikes = pDislikes;
+        }
+
+        //over rides the toString()
+        public override string ToString()
+        {
+            return mProduct+": for "+MPrice+" expires on "+mDate+" Likes:"+mLikes+" Dislikes:"+mDislikes;
+        }
 
 
     }
