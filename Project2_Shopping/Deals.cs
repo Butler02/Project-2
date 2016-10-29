@@ -13,6 +13,8 @@ namespace Project2_Shopping
         private int mDislikes;
         private string mDate;
         private double mPrice;
+        private List<string> userLikes=new List<string>();
+        private List<string> userDislikes = new List<string>();
 
 
         public string MProduct
@@ -77,6 +79,32 @@ namespace Project2_Shopping
             set
             {
                 mPrice = value;
+            }
+        }
+
+        public List<string> UserLikes
+        {
+            get
+            {
+                return userLikes;
+            }
+
+            set
+            {
+                userLikes = value;
+            }
+        }
+
+        public List<string> UserDislikes
+        {
+            get
+            {
+                return userDislikes;
+            }
+
+            set
+            {
+                userDislikes = value;
             }
         }
 

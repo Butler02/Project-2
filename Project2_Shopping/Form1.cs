@@ -126,17 +126,12 @@ namespace Project2_Shopping
 
                 lblstatus.Text = "Error reading deals file";
             }
-            if (Deals.Count>0)
-            {
-                foreach (var deal in Deals)
-                {
-                    lstDeals.Items.Add(deal.ToString());
-                }
-            }
-            else
+            if (Deals.Count<=0)
             {
                 lstDeals.Items.Add("No Deals at this Time");
             }
+              
+            
             
         }
 
@@ -171,6 +166,17 @@ namespace Project2_Shopping
 
 
 
+        }
+
+        private void Display()
+        {
+            lstDeals.Items.Clear();
+                foreach (var deal in Deals)
+                {
+                    lstDeals.Items.Add(deal.ToString());
+                }
+            
+            
         }
 
         private void btnAddUser_Click(object sender, EventArgs e)
@@ -209,7 +215,7 @@ namespace Project2_Shopping
             catch (Exception)
             {
 
-                lblstatus.Text = "Error writing to file";
+                lblstatus.Text = "Error writing to user file";
                 return;
             }
 
@@ -227,7 +233,10 @@ namespace Project2_Shopping
             ///   if(tbPrice.Text == "" && !double.TryParse(tbPrice.Text, out price) && price < 0)
             /////
             double price = 0;
-            if (txtProductToAdd.Text == "")
+            string product =txtProductToAdd.Text;
+            string date = dtpExpireDate.Value.Date.ToString();
+            
+            if (product == "")
             {
                 lblstatus.Text = "Enter a product name";
             }
@@ -244,6 +253,34 @@ namespace Project2_Shopping
             {
                 lblstatus.Text = ("Price is not a vaild amount");
             }
+            Deals newDeal = new Deals(product, price, date, 0, 0);
+            Deals.Add(newDeal);
+
+            StreamWriter outputFile = new StreamWriter(DEALS_FILE);
+            try
+            {
+                //need to think of a way to write all users that like/dislike a product
+                //foreach (var deal in Deals)
+                //{
+                //    outputFile.WriteLine(deal.MProduct+","+deal.MPrice.ToString()+","+deal.MDate+",,");
+                //}
+                outputFile.Close();
+
+
+            }
+            catch (Exception)
+            {
+
+                lblstatus.Text = "Error writing to deals file";
+                return;
+            }
+
+            lblstatus.Text = "Deal added";
+
+
+            Display();
+
+
         }
 
         private void btnSearchDeal_Click(object sender, EventArgs e)
