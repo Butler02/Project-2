@@ -135,7 +135,7 @@ namespace Project2_Shopping
                         mUserDislikes.Add(dislike);
                     }
 
-                    Deals newDeal = new Deals(dealName, price, date, totalLikes, totalDislikes, mUserLikes, mUserDislikes, fields[3], fields[4]);
+                    Deals newDeal = new Deals(dealName, price, date, mUserLikes, mUserDislikes, fields[3], fields[4]);
                     Deals.Add(newDeal);
                 }
 
@@ -208,47 +208,48 @@ namespace Project2_Shopping
             try
             {
                 //should run through the deals count - 1 times
-                //for (int i = 0; i < Deals.Count - 1; i++)
-                //{
-                //    //should run through the liset of deals user like count -
-                //    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 1; j++)
-                //    {
-                //        // MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
-                //        //this adds the token + sign to the  user likes until it gets to the 
-                //        //count length then it does not add one
-                //        if (j != (Deals[i].UserLikes[j].Count() - 1))
-                //        {
-                //            Deals[i].MWriteLikes += Deals[i].UserLikes[j] + "+";
-                //        }
-                //        else
-                //        {
-                //            writeLikes += Deals[i].UserLikes[j];
-                //        }
-                //    }
+                for (int i = 0; i < Deals.Count -2; i++)
+                {
+                    //should run through the liset of deals user like count -
+                    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 2; j++)
+                    {
+                         //MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
+                        //this adds the token + sign to the  user likes until it gets to the 
+                        //count length then it does not add one
+                        if (j != (Deals[i].UserLikes[j].Count() - 2))
+                        {
+                            Deals[i].MWriteLikes += Deals[i].UserLikes[j] + "+";
+                        }
+                        else
+                        {
+                            Deals[i].MWriteLikes += Deals[i].UserLikes[j];
+                        }
+                    }
 
-                //}
-                //works the same as above
-                //for (int i = 0; i < Deals.Count - 1; i++)
-                //{
-                //    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 1; j++)
-                //    {
-                //        if (Deals[i].UserDislikes[j]=="")
-                //        {
-                //            writeLikes = "";
-                //            break;//this may need to be a return
-                //        }
-                //        if (j != Deals[i].UserDislikes[j].Count() - 1)
-                //        {
-                //            writeDislikes += Deals[i].UserDislikes[j] + "+";
-                //        }
-                //        else
-                //        {
-                //            writeDislikes += Deals[i].UserDislikes[j];
-                //        }
+                }
+               // works the same as above
+                for (int i = 0; i < Deals.Count -2; i++)
+                {
+                    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 2; j++)
+                    {
+                        if (Deals[i].UserDislikes[j] == "")
+                        {
+                            //writeLikes = "";
+                            break;//this may need to be a return
+                        }
+                        if (j != Deals[i].UserDislikes[j].Count() - 2)
+                        {
+                            Deals[i].MWriteDislikes += Deals[i].UserDislikes[j] + "+";
+                        }
+                        else
+                        {
+                            Deals[i].MWriteDislikes += Deals[i].UserDislikes[j];
+                        }
 
-                //    }
+                    }
 
-                //}
+                }
+
                 foreach (var deal in Deals)
                 {
                     if (deal.UserLikes == null)
@@ -343,7 +344,7 @@ namespace Project2_Shopping
             mUserDislikes = new List<string>();
             mUserLikes.Add("");
             mUserDislikes.Add("");
-            Deals newDeal = new Deals(product, price, date, 0, 0, mUserLikes, mUserDislikes,"","");
+            Deals newDeal = new Deals(product, price, date, mUserLikes, mUserDislikes,"","");
             Deals.Add(newDeal);
 
             Write();
@@ -445,14 +446,14 @@ namespace Project2_Shopping
 
                 //this write will not work properly if user changes decision
                 //need to figure out way to remove or write to the writedislike/like
-                if (Deals[selectedIndex].UserDislikes.Count>1)
-                {
-                    Deals[selectedIndex].MWriteDislikes = "+"+currentUser;
-                }
-                else
-                {
-                    Deals[selectedIndex].MWriteDislikes = currentUser;
-                }
+                //if (Deals[selectedIndex].MDislikes>1)
+                //{
+                //    Deals[selectedIndex].MWriteDislikes += "+"+currentUser;
+                //}
+                //else
+                //{
+                //    Deals[selectedIndex].MWriteDislikes += currentUser;
+                //}
             }
 
             Write();

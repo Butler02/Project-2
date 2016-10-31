@@ -9,8 +9,6 @@ namespace Project2_Shopping
     class Deals
     {
         private string mProduct;
-        private int mLikes;
-        private int mDislikes;
         private string mDate;
         private double mPrice;
         private List<string> mUserLikes = new List<string>();
@@ -32,30 +30,24 @@ namespace Project2_Shopping
             }
         }
 
-        public int MLikes
+        public int Likes
         {
             get
             {
-                return mLikes;
+                return mUserLikes.Count();
             }
 
-            set
-            {
-                mLikes = mUserLikes.Count();
-            }
+            
         }
 
-        public int MDislikes
+        public int Dislikes
         {
             get
             {
-                return mDislikes;
+                return mUserDislikes.Count();
             }
 
-            set
-            {
-                mDislikes = mUserDislikes.Count();
-            }
+            
         }
 
         public string MDate
@@ -137,13 +129,11 @@ namespace Project2_Shopping
         }
 
         //creates a new deal
-        public Deals(string pProduct, double pPrice, string pDate, int pLikes, int pDislikes, List<String> pUserLikes, List<String> pUserDislikes,string pWriteLikes, string pWriteDislikes)
+        public Deals(string pProduct, double pPrice, string pDate, List<String> pUserLikes, List<String> pUserDislikes,string pWriteLikes, string pWriteDislikes)
         {
             mProduct = pProduct;
             mPrice = pPrice;
             mDate = pDate;
-            mLikes = pLikes;
-            mDislikes = pDislikes;
             mUserLikes = pUserLikes;
             mUserDislikes = pUserDislikes;
             mWriteLikes = pWriteLikes;
@@ -154,7 +144,7 @@ namespace Project2_Shopping
         //right now when this is called the like and dislikes are not updated properly
         public override string ToString()
         {
-            return mProduct + ": for " + MPrice.ToString("c") + " expires on " + mDate + " Likes:" + mLikes + " Dislikes:" + mDislikes;
+            return mProduct + ": for " + MPrice.ToString("c") + " expires on " + mDate + " Likes:" + Likes + " Dislikes:" + Dislikes;
         }
 
 
