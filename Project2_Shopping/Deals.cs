@@ -15,6 +15,8 @@ namespace Project2_Shopping
         private List<string> mUserDislikes = new List<string>();
         private string mWriteLikes;
         private string mWriteDislikes;
+        private int mLikes;
+        private int mDislikes;
 
 
         public string MProduct
@@ -34,7 +36,15 @@ namespace Project2_Shopping
         {
             get
             {
-                return mUserLikes.Count();
+                if (mUserLikes[0]=="")
+                {
+                    mLikes = 0;
+                }
+                else
+                {
+                    mLikes = mUserLikes.Count();
+                }
+                return mLikes;
             }
 
             
@@ -44,7 +54,15 @@ namespace Project2_Shopping
         {
             get
             {
-                return mUserDislikes.Count();
+                if (mUserDislikes[0] == "")
+                {
+                    mDislikes = 0;
+                }
+                else
+                {
+                    mDislikes = mUserDislikes.Count();
+                }
+                return mDislikes;
             }
 
             

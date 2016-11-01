@@ -224,7 +224,8 @@ namespace Project2_Shopping
                     //should run through the liset of deals user like count -
                     for (int j = 0; j < Deals[i].UserLikes[j].Count() - 2; j++)
                     {
-                         //MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
+
+                         MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
                         //this adds the token + sign to the  user likes until it gets to the 
                         //count length then it does not add one
                         if (j != (Deals[i].UserLikes[j].Count() - 2))
@@ -273,7 +274,7 @@ namespace Project2_Shopping
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 lblstatus.Text = "Error writing to deals file";
@@ -473,6 +474,7 @@ namespace Project2_Shopping
 
         }
 
+        //makes sure all current deals that are not past date are saved to file when closed
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Write();
