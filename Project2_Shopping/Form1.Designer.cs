@@ -86,7 +86,7 @@
             this.txtPrice.Location = new System.Drawing.Point(19, 103);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 22);
-            this.txtPrice.TabIndex = 9;
+            this.txtPrice.TabIndex = 6;
             // 
             // dtpExpireDate
             // 
@@ -103,7 +103,7 @@
             this.btnAddDeal.Location = new System.Drawing.Point(152, 114);
             this.btnAddDeal.Name = "btnAddDeal";
             this.btnAddDeal.Size = new System.Drawing.Size(75, 23);
-            this.btnAddDeal.TabIndex = 6;
+            this.btnAddDeal.TabIndex = 7;
             this.btnAddDeal.Text = "Add Deal";
             this.btnAddDeal.UseVisualStyleBackColor = true;
             this.btnAddDeal.Click += new System.EventHandler(this.btnAddDeal_Click);
@@ -113,7 +113,7 @@
             this.txtProductToAdd.Location = new System.Drawing.Point(21, 43);
             this.txtProductToAdd.Name = "txtProductToAdd";
             this.txtProductToAdd.Size = new System.Drawing.Size(100, 22);
-            this.txtProductToAdd.TabIndex = 4;
+            this.txtProductToAdd.TabIndex = 5;
             // 
             // label4
             // 
@@ -171,7 +171,7 @@
             this.btnLogin.Location = new System.Drawing.Point(125, 22);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -181,7 +181,7 @@
             this.txtLogin.Location = new System.Drawing.Point(21, 58);
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(100, 22);
-            this.txtLogin.TabIndex = 2;
+            this.txtLogin.TabIndex = 3;
             // 
             // label3
             // 

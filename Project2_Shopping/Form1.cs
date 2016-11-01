@@ -53,6 +53,7 @@ namespace Project2_Shopping
                 inputFile = new StreamReader(USERS_FILE);
                 while (!inputFile.EndOfStream)
                 {
+
                     users.Add(inputFile.ReadLine());
                 }
 
@@ -88,6 +89,15 @@ namespace Project2_Shopping
                     dealName = fields[0];
                     price = double.Parse(fields[1]);
                     date = fields[2];
+                    //converts fields[2] to datetime so that you can compare the current date to the expire date
+                    DateTime currentdate = DateTime.Today;
+                    DateTime expire = Convert.ToDateTime(fields[2]);
+                    //compares the exire date to the current date.
+                    //will not populate the list box with expired items
+                    if (expire < currentdate)
+                    {
+                        break;
+                    }
                     //set a string array equal to fields [3] which I know to be the likes and split it on the plus sign
                     string[] likes=new string[] { "" };
                     if (fields[3] != "")
