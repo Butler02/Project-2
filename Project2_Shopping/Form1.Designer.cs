@@ -360,6 +360,7 @@
             this.Controls.Add(this.gbDeals);
             this.Name = "Form1";
             this.Text = "Shopping Deals";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gbDeals.ResumeLayout(false);
             this.gbDeals.PerformLayout();

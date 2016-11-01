@@ -90,14 +90,7 @@ namespace Project2_Shopping
                     price = double.Parse(fields[1]);
                     date = fields[2];
                     //converts fields[2] to datetime so that you can compare the current date to the expire date
-                    DateTime currentdate = DateTime.Today;
-                    DateTime expire = Convert.ToDateTime(fields[2]);
-                    //compares the exire date to the current date.
-                    //will not populate the list box with expired items
-                    if (expire < currentdate)
-                    {
-                        break;
-                    }
+                    
                     //set a string array equal to fields [3] which I know to be the likes and split it on the plus sign
                     string[] likes=new string[] { "" };
                     if (fields[3] != "")
@@ -146,7 +139,15 @@ namespace Project2_Shopping
                     }
 
                     Deals newDeal = new Deals(dealName, price, date, mUserLikes, mUserDislikes, fields[3], fields[4]);
-                    Deals.Add(newDeal);
+                    DateTime currentdate = DateTime.Today;
+                    DateTime expire = Convert.ToDateTime(date);
+                    //compares the exire date to the current date.
+                    //will not populate the list box with expired items
+                    if (expire >= currentdate)
+                    {                        
+                        Deals.Add(newDeal);
+                    }
+                    
                 }
 
                 inputFile.Close();
@@ -470,6 +471,11 @@ namespace Project2_Shopping
             Display();
 
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Write();
         }
     }
 }

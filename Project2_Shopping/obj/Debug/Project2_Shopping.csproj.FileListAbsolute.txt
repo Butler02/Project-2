@@ -43,3 +43,12 @@ C:\Users\Eric\Desktop\Project2.1\Project2_Shopping\obj\Debug\Project2_Shopping.c
 C:\Users\Eric\Desktop\Project2.1\Project2_Shopping\obj\Debug\Project2_Shopping.Form1.resources
 C:\Users\Eric\Desktop\Project2.1\Project2_Shopping\obj\Debug\Project2_Shopping.Properties.Resources.resources
 C:\Users\Eric\Desktop\Project2.1\Project2_Shopping\obj\Debug\Project2_Shopping.csproj.GenerateResource.Cache
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\bin\Debug\Project2_Shopping.exe.config
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.exe
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.pdb
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\bin\Debug\Project2_Shopping.exe
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\bin\Debug\Project2_Shopping.pdb
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.csprojResolveAssemblyReference.cache
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.Form1.resources
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.Properties.Resources.resources
+C:\Users\Jimmy\Desktop\project2.5\Project2_Shopping\obj\Debug\Project2_Shopping.csproj.GenerateResource.Cache
