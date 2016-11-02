@@ -352,6 +352,17 @@ namespace Project2_Shopping
             {
                 lblstatus.Text = ("Price is not a vaild amount");
             }
+            foreach (var item in Deals)
+            {
+                if (item.MProduct == product)
+                {
+                    lblstatus.Text = "You cannot have duplicate product names";
+                    txtProductToAdd.Text = "";
+                    txtProductToAdd.Focus();
+                    return
+                }
+
+            }
             mUserLikes = new List<string>();
             mUserDislikes = new List<string>();
             mUserLikes.Add("");
