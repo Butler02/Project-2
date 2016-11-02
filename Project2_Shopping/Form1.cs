@@ -359,7 +359,7 @@ namespace Project2_Shopping
                     lblstatus.Text = "You cannot have duplicate product names";
                     txtProductToAdd.Text = "";
                     txtProductToAdd.Focus();
-                    return
+                    return;
                 }
 
             }
