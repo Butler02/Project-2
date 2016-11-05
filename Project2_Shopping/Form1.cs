@@ -108,9 +108,9 @@ namespace Project2_Shopping
                     {
                         totalLikes = likes.Count();
                     }
-                    foreach (var like in likes)
+                    for (int i = 0; i < totalLikes; i++)
                     {
-                        mUserLikes.Add(like);
+                        mUserLikes.Add(likes[i]);
                     }
 
 
@@ -133,12 +133,13 @@ namespace Project2_Shopping
                     {
                         totalDislikes = dislikes.Count();
                     }
-                    foreach (var dislike in dislikes)
+                    for (int i = 0; i < totalDislikes; i++)
                     {
-                        mUserDislikes.Add(dislike);
+                        mUserDislikes.Add(dislikes[i]);
                     }
 
                     Deals newDeal = new Deals(dealName, price, date, mUserLikes, mUserDislikes, fields[3], fields[4]);
+                    MessageBox.Show(mUserLikes.Count.ToString());
                     DateTime currentdate = DateTime.Today;
                     DateTime expire = Convert.ToDateTime(date);
                     //compares the exire date to the current date.
@@ -218,57 +219,10 @@ namespace Project2_Shopping
             StreamWriter outputFile = new StreamWriter(DEALS_FILE);
             try
             {
-                //should run through the deals count - 1 times
-                for (int i = 0; i < Deals.Count -2; i++)
-                {
-                    //should run through the liset of deals user like count -
-                    for (int j = 0; j < Deals[i].UserLikes[j].Count() - 2; j++)
-                    {
-
-                         MessageBox.Show((Deals[i].UserLikes[j].Count() - 1).ToString());
-                        //this adds the token + sign to the  user likes until it gets to the 
-                        //count length then it does not add one
-                        if (j != (Deals[i].UserLikes[j].Count() - 2))
-                        {
-                            Deals[i].MWriteLikes += Deals[i].UserLikes[j] + "+";
-                        }
-                        else
-                        {
-                            Deals[i].MWriteLikes += Deals[i].UserLikes[j];
-                        }
-                    }
-
-                }
-               // works the same as above
-                for (int i = 0; i < Deals.Count -2; i++)
-                {
-                    for (int j = 0; j < Deals[i].UserDislikes[j].Count() - 2; j++)
-                    {
-                        if (Deals[i].UserDislikes[j] == "")
-                        {
-                            //writeLikes = "";
-                            break;//this may need to be a return
-                        }
-                        if (j != Deals[i].UserDislikes[j].Count() - 2)
-                        {
-                            Deals[i].MWriteDislikes += Deals[i].UserDislikes[j] + "+";
-                        }
-                        else
-                        {
-                            Deals[i].MWriteDislikes += Deals[i].UserDislikes[j];
-                        }
-
-                    }
-
-                }
-
+                
                 foreach (var deal in Deals)
-                {
-                    if (deal.UserLikes == null)
-                    {
-
-                    }
-                    outputFile.WriteLine(deal.MProduct + "," + deal.MPrice.ToString("f") + "," + deal.MDate + "," + deal.MWriteLikes + "," + deal.MWriteDislikes);
+                {                    
+                    outputFile.WriteLine(deal.MProduct + "," + deal.MPrice.ToString("f") + "," + deal.MDate + "," + deal.fileString());
                 }
                 outputFile.Close();
 
@@ -365,8 +319,6 @@ namespace Project2_Shopping
             }
             mUserLikes = new List<string>();
             mUserDislikes = new List<string>();
-            mUserLikes.Add("");
-            mUserDislikes.Add("");
             Deals newDeal = new Deals(product, price, date, mUserLikes, mUserDislikes,"","");
             Deals.Add(newDeal);
 
@@ -410,6 +362,7 @@ namespace Project2_Shopping
             currentUser = null;
             btnLogin.Enabled = true;
             btnLogout.Enabled = false;
+            txtLogin.Text = "";
             grpLikeDislike.Enabled = false;
         }
 

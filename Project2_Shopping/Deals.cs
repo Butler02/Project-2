@@ -19,6 +19,35 @@ namespace Project2_Shopping
         private int mDislikes;
 
 
+        public string fileString()
+        {
+            string result="";            
+            for (int i = 0; i < UserLikes.Count(); i++)
+            {
+                if (i < UserLikes.Count() - 1)
+                {
+                    result = result + UserLikes[i]+"+";
+                }
+                else
+                {
+                    result += UserLikes[i];
+                }
+            }
+            result += ",";
+            for (int i = 0; i < UserDislikes.Count(); i++)
+            {
+                if (i < UserDislikes.Count() - 1)
+                {
+                    result += UserDislikes[i] + "+";
+                }
+                else
+                {
+                    result += UserDislikes[i];
+                }
+            }
+
+            return result; 
+        }
         public string MProduct
         {
             get
@@ -36,7 +65,7 @@ namespace Project2_Shopping
         {
             get
             {
-                if (mUserLikes[0]=="")
+                if (UserLikes.Count()==0)
                 {
                     mLikes = 0;
                 }
@@ -54,7 +83,7 @@ namespace Project2_Shopping
         {
             get
             {
-                if (mUserDislikes[0] == "")
+                if (mUserDislikes.Count() == 0)
                 {
                     mDislikes = 0;
                 }
